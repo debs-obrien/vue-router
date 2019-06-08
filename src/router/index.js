@@ -4,11 +4,17 @@ import jamaica from '@/pages/jamaica'
 import hawaii from '@/pages/hawaii'
 import brazil from '@/pages/brazil'
 import panama from '@/pages/panama'
+import AllDestinations from '@/components/AllDestinations'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: AllDestinations
+        },
         {
             path: '/jamaica',
             name: 'jamaica',

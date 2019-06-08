@@ -1,3 +1,3 @@
 <template>
-    <div>jamaica</div>
+    <div><h2>Jamaica</h2></div>
 </template>

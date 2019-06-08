@@ -62,4 +62,14 @@ export default {
 img{
     max-width: 200px;
 }
+a{
+    color: lightseagreen;
+    text-decoration:none;
+}
+a:hover, a:visited{
+    text-decoration:underline;
+}
+.router-link-active{
+    color:dodgerblue;
+}
 </style>
