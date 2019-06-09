@@ -3,22 +3,25 @@
         <h1>All Destinations</h1>
         <div class="all-destinations">
             <div v-for="destination in destinations" :key="destination.name" class="destinations">
-            <router-link :to="destination.url">
-                <h2>{{ destination.name }}</h2>
-            </router-link>
+                <h2 @click="goTodetail()">{{ destination.name }}</h2>
             <figure>
-            <img :src="require(`@/assets/${destination.image}.jpg`)" />
+            <img :src="require(`@/assets/${destination.image}.jpg`)"  @click="goTodetail()"/>
             </figure>
 </div>
 </div>
-  <router-view></router-view>
 
     </div>
 </template>
 <script>
 export default {
+    methods:{  
+        goTodetail() {
+            console.log('clicked')    
+            this.$router.push({name:'details'})  
+            }
+    },
     data: function () {
-  return {
+    return {
     destinations: [
         {
             name: "Brazil",

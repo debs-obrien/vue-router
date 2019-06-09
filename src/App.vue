@@ -1,17 +1,19 @@
 <template>
-  <div id="app">
-        <AllDestinations />
 
+  <div id="app">
+  <TheNav />
+
+ <router-view/> 
   </div>
 </template>
 
 <script>
-import AllDestinations from './components/AllDestinations.vue'
+import TheNav from '@/components/TheNav.vue'
 
 export default {
-  name: 'app',
+  name: 'details',
   components: {
-    AllDestinations
+    TheNav
   }
 }
 </script>
@@ -24,5 +26,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+li{
+  list-style: none;
 }
 </style>
