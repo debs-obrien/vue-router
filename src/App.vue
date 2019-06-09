@@ -11,7 +11,7 @@
 import TheNav from '@/components/TheNav.vue'
 
 export default {
-  name: 'details',
+  name: 'App',
   components: {
     TheNav
   }
