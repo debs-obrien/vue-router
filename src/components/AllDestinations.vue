@@ -3,9 +3,9 @@
         <h1>All Destinations</h1>
         <div class="all-destinations">
             <div v-for="destination in destinations" :key="destination.name" class="destinations">
-                <h2 @click="goTodetail()">{{ destination.name }}</h2>
+                <h2 @click="goTodetail(destination.id)">{{ destination.name }}</h2>
             <figure>
-            <img :src="require(`@/assets/${destination.image}.jpg`)"  @click="goTodetail()"/>
+            <img :src="require(`@/assets/${destination.image}.jpg`)"  @click="goTodetail(destination.id)"/>
             </figure>
 </div>
 </div>
@@ -15,9 +15,8 @@
 <script>
 export default {
     methods:{  
-        goTodetail() {
-            console.log('clicked')    
-            this.$router.push({name:'details'})  
+        goTodetail(destinationId) {
+            this.$router.push({name:'DestinationDetails', params:{id:destinationId}})  
             }
     },
     data: function () {
@@ -26,24 +25,28 @@ export default {
         {
             name: "Brazil",
             image: "brazil",
-            url: "brazil"
+            url: "brazil",
+            id: 1
         },
         {
             name: "Panama",
             image: "panama",
-            url: "panama"
+            url: "panama",
+            id: 2
 
         },
         {
             name: "Hawaii",
             image: "hawaii",
-            url: "hawaii"
+            url: "hawaii",
+            id: 3
 
         },
         {
             name: "Jamaica",
             image: "jamaica",
-            url: "jamaica"
+            url: "jamaica",
+            id: 4
 
         }
     ]
@@ -52,7 +55,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .wrapper{
     max-width: 1400px;
     margin: 0 auto;

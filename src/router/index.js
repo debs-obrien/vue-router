@@ -4,7 +4,7 @@ import jamaica from '@/pages/jamaica'
 import hawaii from '@/pages/hawaii'
 import brazil from '@/pages/brazil'
 import panama from '@/pages/panama'
-import details from '@/pages/details'
+import DestinationDetails from '@/pages/DestinationDetails'
 
 import AllDestinations from '@/components/AllDestinations'
 
@@ -37,7 +37,11 @@ export default new Router({
             name: 'panama',
             component: panama
         },
-        { path: '/details', name: 'details', component: details }
+        { 
+            path: '/DestinationDetails/:id', 
+            name: 'DestinationDetails', 
+            component: DestinationDetails
+         }
 
     ]
 })
