@@ -21,7 +21,11 @@
 </template>
 <script>
 export default {
-
+watch: {
+    '$route' (to, from) {
+      // react to route changes...
+    }
+  },
     data: function () {
     return {
     destinations: [

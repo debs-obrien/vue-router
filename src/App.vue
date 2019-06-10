@@ -3,7 +3,7 @@
   <div id="app">
   <TheNav />
 
- <router-view/> 
+ <router-view :key="$route.path" /> 
   </div>
 </template>
 
