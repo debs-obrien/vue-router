@@ -15,7 +15,7 @@ export default new Router({
         },
     
         { 
-            path: '/DestinationDetails/:id', 
+            path: '/DestinationDetails/:location', 
             name: 'DestinationDetails', 
             component: DestinationDetails
          }

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div  v-for="(destination,index) in destinations" :key="index">     
-        <div v-if="destinationId == destination.id">      
+        <div v-if="location == destination.name">      
             <h1>{{destination.name}}</h1>      
             <div class="destination-details">
             <img :src="require(`@/assets/${destination.image}.jpg`)" />
@@ -13,10 +13,9 @@
 </template>
 <script>
 export default {
-
     data: function () {
     return {
-        destinationId:this.$route.params.id,
+        location:this.$route.params.location,
     destinations: [
         {
             name: "Brazil",

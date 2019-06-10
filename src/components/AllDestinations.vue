@@ -3,12 +3,12 @@
         <h1>All Destinations</h1>
         <div class="all-destinations">
             <div v-for="destination in destinations" :key="destination.name" class="destinations">
-                <router-link :to="{ name: 'DestinationDetails', params: { id:destination.id }}">                
+                <router-link :to="{ name: 'DestinationDetails', params: { location:destination.name }}">                
                     <h2 >{{ destination.name }}</h2>
                 </router-link>
 
             <figure>
-             <router-link :to="{ name: 'DestinationDetails', params: { id:destination.id }}">                
+             <router-link :to="{ name: 'DestinationDetails', params: { location:destination.name }}">                
 
             <img :src="require(`@/assets/${destination.image}.jpg`)"/>
              </router-link>
@@ -21,11 +21,7 @@
 </template>
 <script>
 export default {
-watch: {
-    '$route' (to, from) {
-      // react to route changes...
-    }
-  },
+
     data: function () {
     return {
     destinations: [
