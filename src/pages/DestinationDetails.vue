@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div  v-for="(destination,index) in destinations" :key="index">     
-        <div v-if="location == destination.name">      
-            <h1>{{destination.name}}</h1>      
+    <div  v-for="(destination,index) in destinations" :key="index">
+        <div v-if="location == destination.name">
+            <h1>{{destination.name}}</h1>
             <div class="destination-details">
             <img :src="require(`@/assets/${destination.image}.jpg`)" />
             <p>{{destination.description}}</p>
             </div>
-            </div>    
+            </div>
          </div>
     </div>
 </template>
@@ -19,6 +19,7 @@ export default {
     destinations: [
         {
             name: "Brazil",
+            slug: "brazil",
             image: "brazil",
             url: "brazil",
             id: 1,
@@ -26,6 +27,7 @@ export default {
         },
         {
             name: "Panama",
+            slug: "panama",
             image: "panama",
             url: "panama",
             id: 2,
@@ -34,6 +36,7 @@ export default {
         },
         {
             name: "Hawaii",
+                        slug: "hawaii",
             image: "hawaii",
             url: "hawaii",
             id: 3,
@@ -42,6 +45,8 @@ export default {
         },
         {
             name: "Jamaica",
+                        slug: "jamaica",
+
             image: "jamaica",
             url: "jamaica",
             id: 4,
