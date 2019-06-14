@@ -31,8 +31,6 @@
   </div>
 </template>
 <script>
-import GoBack from '@/components/GoBack'
-
 export default {
   data: function() {
     return {
