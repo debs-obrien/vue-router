@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span @click="goBack">go back</span>
+    <GoBack />
     <h1>experiences</h1>
     <div v-for="(destination, index) in destinations" :key="index">
       <div v-if="location == destination.slug">
@@ -9,11 +9,13 @@
           <div v-if="routeExperience == experience.slug">
             <h2>{{ experience.title }}</h2>
             <div>
-              <p> {{ experience.description }}</p>
-              <img
-                :src="require(`@/assets/${experience.image}.jpg`)"
-                alt="experience.title"
-              />
+              <div class="experience-details">
+                <img
+                  :src="require(`@/assets/${experience.image}.jpg`)"
+                  alt="experience.title"
+                />
+                <p> {{ experience.description }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -22,7 +24,11 @@
   </div>
 </template>
 <script>
+import GoBack from '@/components/GoBack'
+
 export default {
+  components: { GoBack },
+
   data: function() {
     return {
       location: this.$route.params.location,
@@ -93,10 +99,22 @@ export default {
       ],
     }
   },
-  methods: {
-    goBack() {
-      return this.$router.go(-1)
-    },
-  },
 }
 </script>
+<style scoped>
+img {
+  max-width: 600px;
+  height: auto;
+  width: 100%;
+  max-height: 400px;
+}
+.experience-details {
+  display: flex;
+  justify-content: space-between;
+}
+p {
+  margin: 0 40px;
+  font-size: 20px;
+  text-align: left;
+}
+</style>

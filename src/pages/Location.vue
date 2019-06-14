@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GoBack />
     <div v-for="(destination, index) in destinations" :key="index">
       <div v-if="location == destination.slug">
         <h1>{{ destination.name }}</h1>
@@ -8,23 +9,36 @@
           <p>{{ destination.description }}</p>
         </div>
         <h2>Top experiences in {{ destination.name }}</h2>
+        <div class="experiences">
+          <div
+            v-for="(experience, i) in destination.experiences"
+            :key="i"
+            class="experience-card"
+            ><router-link
+              :to="{
+                name: 'Experiences',
+                params: { experience: experience.slug },
+              }"
+            >
+              <img
+                :src="require(`@/assets/${experience.image}.jpg`)"
+                alt="experience.title"
+              />
 
-        <div v-for="(experience, i) in destination.experiences" :key="i">
-          <router-link
-            :to="{
-              name: 'Experiences',
-              params: { experience: experience.slug },
-            }"
-          >
-            {{ experience.title }}
-          </router-link>
+              <span class="experience-card__text"> {{ experience.title }}</span>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import GoBack from '@/components/GoBack'
+
 export default {
+  components: { GoBack },
+
   data: function() {
     return {
       location: this.$route.params.location,
@@ -40,14 +54,14 @@ export default {
             {
               title: 'Iguaçu Falls',
               slug: 'iguacu-falls',
-              img: 'iguacu-falls',
+              image: 'iguacu-falls',
               description:
                 "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             },
             {
               title: 'Pão de Açúcar',
               slug: 'pao-de-acucar',
-              img: 'pao-de-acucar',
+              image: 'pao-de-acucar',
               description:
                 "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
             },
@@ -96,7 +110,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 img {
   max-width: 600px;
   height: auto;
@@ -111,5 +125,26 @@ p {
   margin: 0 40px;
   font-size: 20px;
   text-align: left;
+}
+.experiences {
+  display: flex;
+  justify-content: space-between;
+}
+.experiences img {
+  max-height: 200px;
+}
+.experience-card {
+  padding: 0 20px;
+  position: relative;
+}
+.experience-card__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
 }
 </style>

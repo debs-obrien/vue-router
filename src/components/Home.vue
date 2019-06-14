@@ -9,7 +9,7 @@
       >
         <router-link
           :to="{
-            name: 'DestinationDetails',
+            name: 'Location',
             params: { location: destination.slug },
           }"
         >
@@ -19,7 +19,7 @@
         <figure>
           <router-link
             :to="{
-              name: 'DestinationDetails',
+              name: 'Location',
               params: { location: destination.slug },
             }"
           >
@@ -31,6 +31,8 @@
   </div>
 </template>
 <script>
+import GoBack from '@/components/GoBack'
+
 export default {
   data: function() {
     return {
@@ -72,10 +74,13 @@ export default {
 }
 .all-destinations {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 img {
-  max-width: 200px;
+  width: auto;
+  max-width: 250px;
+  height: auto;
+  width: 100%;
 }
 a {
   color: lightseagreen;
