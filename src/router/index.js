@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import DestinationDetails from '@/pages/DestinationDetails'
 import AllDestinations from '@/components/AllDestinations'
 import Experiences from '@/pages/Experiences'
+import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)
 
@@ -24,6 +25,12 @@ export default new Router({
       path: '/DestinationDetails/:location/:experience',
       name: 'Experiences',
       component: Experiences,
+    },
+
+    {
+      path: '*',
+      Name: 'Not Found',
+      component: NotFound,
     },
   ],
 })

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span @click="goBack">go back</span>
     <h1>experiences</h1>
     <div v-for="(destination, index) in destinations" :key="index">
       <div v-if="location == destination.slug">
@@ -91,6 +92,11 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    goBack() {
+      return this.$router.go(-1)
+    },
   },
 }
 </script>
