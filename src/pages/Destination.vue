@@ -18,6 +18,7 @@
               :to="{
                 name: 'Experience',
                 params: { exp: experience.slug },
+                hash: '#experience',
               }"
             >
               <img
