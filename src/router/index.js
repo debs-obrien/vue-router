@@ -22,16 +22,18 @@ export default new Router({
       name: 'Destination',
       component: Destination,
       props: true,
-    },
-    {
-      path: '/:dest/:exp',
-      name: 'Experience',
-      component: Experience,
-      props: true,
+      children: [
+        {
+          path: ':exp',
+          name: 'Experience',
+          component: Experience,
+          props: true,
+        },
+      ],
     },
 
     {
-      path: '*',
+      path: '404',
       Name: 'Not Found',
       component: NotFound,
     },

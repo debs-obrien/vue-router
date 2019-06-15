@@ -1,12 +1,10 @@
 <template>
   <div>
-    <GoBack />
-    <h1>experiences</h1>
     <div v-for="destination in destinations" :key="destination.id">
       <div v-if="dest == destination.slug">
         <div v-for="experience in destination.experiences" :key="experience.id">
           <div v-if="exp == experience.slug">
-            <h2>{{ exp.title }}</h2>
+            <h2>{{ experience.title }}</h2>
             <div>
               <div class="experience-details">
                 <img
@@ -23,10 +21,7 @@
   </div>
 </template>
 <script>
-import GoBack from '@/components/GoBack'
-
 export default {
-  components: { GoBack },
   props: ['dest', 'exp'],
 
   data: function() {
