@@ -2,17 +2,16 @@
   <div>
     <GoBack />
     <h1>experiences</h1>
-    <div v-for="(destination, index) in destinations" :key="index">
-      <div v-if="location == destination.slug">
-        <div v-for="(experience, i) in destination.experiences" :key="i">
-          {{ $route.params.location.experience }}
-          <div v-if="routeExperience == experience.slug">
-            <h2>{{ experience.title }}</h2>
+    <div v-for="destination in destinations" :key="destination.id">
+      <div v-if="dest == destination.slug">
+        <div v-for="experience in destination.experiences" :key="experience.id">
+          <div v-if="exp == experience.slug">
+            <h2>{{ exp.title }}</h2>
             <div>
               <div class="experience-details">
                 <img
                   :src="require(`@/assets/${experience.image}.jpg`)"
-                  alt="experience.title"
+                  :alt="experience.title"
                 />
                 <p> {{ experience.description }}</p>
               </div>
@@ -28,11 +27,10 @@ import GoBack from '@/components/GoBack'
 
 export default {
   components: { GoBack },
+  props: ['dest', 'exp'],
 
   data: function() {
     return {
-      location: this.$route.params.location,
-      routeExperience: this.$route.params.experience,
       destinations: [
         {
           name: 'Brazil',

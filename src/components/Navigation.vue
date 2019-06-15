@@ -7,8 +7,8 @@
         ><router-link
           class="links"
           :to="{
-            name: 'Location',
-            params: { location: destination.slug },
+            name: 'Destination',
+            params: { dest: destination.slug },
           }"
         >
           {{ destination.name }}

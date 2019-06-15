@@ -9,8 +9,8 @@
       >
         <router-link
           :to="{
-            name: 'Location',
-            params: { location: destination.slug },
+            name: 'Destination',
+            params: { dest: destination.slug },
           }"
         >
           <h2>{{ destination.name }}</h2>
@@ -19,8 +19,8 @@
         <figure>
           <router-link
             :to="{
-              name: 'Location',
-              params: { location: destination.slug },
+              name: 'Destination',
+              params: { dest: destination.slug },
             }"
           >
             <img :src="require(`@/assets/${destination.image}.jpg`)" />

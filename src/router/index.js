@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Location from '@/pages/Location'
-import Experiences from '@/pages/Experiences'
+import Destination from '@/pages/Destination'
+import Experience from '@/pages/Experience'
 import NotFound from '@/pages/NotFound'
 
 Vue.use(Router)
@@ -14,17 +14,20 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
+      props: true,
     },
 
     {
-      path: '/:location',
-      name: 'Location',
-      component: Location,
+      path: '/:dest',
+      name: 'Destination',
+      component: Destination,
+      props: true,
     },
     {
-      path: '/:location/:experience',
-      name: 'Experiences',
-      component: Experiences,
+      path: '/:dest/:exp',
+      name: 'Experience',
+      component: Experience,
+      props: true,
     },
 
     {

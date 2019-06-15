@@ -1,8 +1,8 @@
 <template>
   <div>
     <GoBack />
-    <div v-for="(destination, index) in destinations" :key="index">
-      <div v-if="location == destination.slug">
+    <div v-for="destination in destinations" :key="destination.id">
+      <div v-if="dest == destination.slug">
         <h1>{{ destination.name }}</h1>
         <div class="destination-details">
           <img :src="require(`@/assets/${destination.image}.jpg`)" />
@@ -11,18 +11,18 @@
         <h2>Top experiences in {{ destination.name }}</h2>
         <div class="experiences">
           <div
-            v-for="(experience, i) in destination.experiences"
-            :key="i"
+            v-for="experience in destination.experiences"
+            :key="experience.id"
             class="experience-card"
             ><router-link
               :to="{
-                name: 'Experiences',
-                params: { experience: experience.slug },
+                name: 'Experience',
+                params: { exp: experience.slug },
               }"
             >
               <img
                 :src="require(`@/assets/${experience.image}.jpg`)"
-                alt="experience.title"
+                :alt="experience.title"
               />
 
               <span class="experience-card__text"> {{ experience.title }}</span>
@@ -38,10 +38,10 @@ import GoBack from '@/components/GoBack'
 
 export default {
   components: { GoBack },
+  props: ['dest'],
 
   data: function() {
     return {
-      location: this.$route.params.location,
       destinations: [
         {
           name: 'Brazil',
