@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Destination from '@/pages/Destination'
-import Experience from '@/pages/Experience'
 import NotFound from '@/pages/NotFound'
+const Destination = () =>
+  import(/* webpackChunkName: "Destination" */ '@/pages/Destination.vue')
+const Experience = () =>
+  import(/* webpackChunkName: "Experience" */ '@/pages/Experience.vue')
 
 Vue.use(Router)
 
