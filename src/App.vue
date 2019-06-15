@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navigation />
-    <router-view :key="$route.path" />
+    <transition name="fade" mode="out-in">
+      <router-view :key="$route.path" />
+    </transition>
   </div>
 </template>
 
@@ -33,5 +35,22 @@ figure {
 }
 li {
   list-style: none;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
