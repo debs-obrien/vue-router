@@ -16,10 +16,9 @@ export default new Router({
       return savedPosition
     }
     if (to.hash) {
-      return {
-        selector: to.hash,
-      }
+      return { selector: to.hash }
     }
+    return { x: 0, y: 0 }
   },
   routes: [
     {
@@ -28,7 +27,6 @@ export default new Router({
       component: Home,
       props: true,
     },
-
     {
       path: '/:dest',
       name: 'Destination',
