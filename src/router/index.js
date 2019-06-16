@@ -28,13 +28,13 @@ export default new Router({
       props: true,
     },
     {
-      path: '/:dest',
+      path: '/destination/:dest',
       name: 'Destination',
       component: Destination,
       props: true,
       children: [
         {
-          path: ':exp',
+          path: '/:exp',
           name: 'Experience',
           component: Experience,
           props: true,
@@ -43,7 +43,7 @@ export default new Router({
     },
 
     {
-      path: '404',
+      path: '*',
       Name: 'Not Found',
       component: NotFound,
     },
