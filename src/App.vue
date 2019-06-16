@@ -4,16 +4,19 @@
     <transition name="fade" mode="out-in">
       <router-view :key="$route.path" />
     </transition>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import Navigation from '@/components/Navigation.vue'
+import TheFooter from '@/components/TheFooter.vue'
 
 export default {
   name: 'App',
   components: {
     Navigation,
+    TheFooter,
   },
 }
 </script>
