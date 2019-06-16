@@ -23,7 +23,10 @@
               params: { dest: destination.slug },
             }"
           >
-            <img :src="require(`@/assets/${destination.image}.jpg`)" />
+            <img
+              :src="require(`@/assets/${destination.image}.jpg`)"
+              :alt="destination.name"
+            />
           </router-link>
         </figure>
       </div>
