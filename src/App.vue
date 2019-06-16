@@ -18,6 +18,11 @@ export default {
     Navigation,
     TheFooter,
   },
+  metaInfo: {
+    // Children can override the title.
+    title: 'Vue School Router Course',
+    titleTemplate: '%s ← Vue Router',
+  },
 }
 </script>
 
