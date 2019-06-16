@@ -34,7 +34,7 @@ export default new Router({
       props: true,
       children: [
         {
-          path: '/:exp',
+          path: ':exp',
           name: 'Experience',
           component: Experience,
           props: true,
