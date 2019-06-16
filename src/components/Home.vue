@@ -22,6 +22,7 @@
               name: 'Destination',
               params: { dest: destination.slug },
             }"
+            :aria-label="destination.name"
           >
             <img
               :src="require(`@/assets/${destination.image}.jpg`)"
@@ -93,6 +94,6 @@ a:visited {
   text-decoration: underline;
 }
 .router-link-active {
-  color: dodgerblue;
+  color: #067771;
 }
 </style>
