@@ -86,7 +86,7 @@ img {
   width: 100%;
 }
 a {
-  color: lightseagreen;
+  color: #107b75;
   text-decoration: none;
 }
 a:hover,
@@ -94,6 +94,6 @@ a:visited {
   text-decoration: underline;
 }
 .router-link-active {
-  color: #067771;
+  color: #08312f;
 }
 </style>
