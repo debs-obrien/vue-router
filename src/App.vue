@@ -22,6 +22,10 @@ export default {
     // Children can override the title.
     title: 'Vue School Router Course',
     titleTemplate: '%s ← Vue Router',
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'description', content: 'Vue School Vue Router Course.' },
+    ],
   },
 }
 </script>
