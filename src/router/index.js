@@ -13,12 +13,29 @@ export default new Router({
   mode: 'history',
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
+      // savedPosition is only available for popstate navigations.
       return savedPosition
+    } else {
+      const position = {}
+
+      // scroll to anchor by returning the selector
+      if (to.hash) {
+        position.selector = to.hash
+
+        // specify offset of the element
+        if (to.hash === '#experience') {
+          position.offset = { y: 80 }
+        }
+
+        if (document.querySelector(to.hash)) {
+          return position
+        }
+
+        // if the returned position is falsy or an empty object,
+        // will retain current scroll position.
+        return false
+      }
     }
-    if (to.hash) {
-      return { selector: to.hash }
-    }
-    return { x: 0, y: 0 }
   },
   routes: [
     {

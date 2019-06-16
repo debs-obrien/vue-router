@@ -1,14 +1,10 @@
 <template>
   <div>
-    <div
-      v-for="destination in destinations"
-      id="experience"
-      :key="destination.id"
-    >
+    <div v-for="destination in destinations" :key="destination.id">
       <div v-if="dest == destination.slug">
         <div v-for="experience in destination.experiences" :key="experience.id">
-          <div v-if="exp == experience.slug">
-            <h2>{{ experience.title }}</h2>
+          <section v-if="exp == experience.slug">
+            <h3 class="title">{{ experience.title }}</h3>
             <div>
               <div class="experience-details">
                 <img
@@ -18,7 +14,7 @@
                 <p> {{ experience.description }}</p>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>
@@ -113,5 +109,8 @@ p {
   margin: 0 40px;
   font-size: 20px;
   text-align: left;
+}
+.title {
+  font-size: 30px;
 }
 </style>

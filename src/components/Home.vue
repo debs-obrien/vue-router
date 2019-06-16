@@ -69,6 +69,7 @@ export default {
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 .all-destinations {
   display: flex;
