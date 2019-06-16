@@ -35,6 +35,10 @@ figure {
   text-align: center;
   color: #2c3e50;
   margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
 }
 li {
   list-style: none;
