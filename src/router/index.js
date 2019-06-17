@@ -59,13 +59,12 @@ export default new Router({
       ],
     },
     {
-      path: '404',
-      Name: 'Not Found',
+      path: '/404',
+      name: 'Not Found',
       component: NotFound,
     },
     {
       path: '*',
-      Name: 'Not Found',
       component: NotFound,
     },
   ],
