@@ -1,43 +1,36 @@
 <template>
   <div>
     <GoBack />
-    <div v-for="destination in destinations" :key="destination.id">
-      <div v-if="dest == destination.slug">
-        <section class="destination">
-          <h1>{{ destination.name }}</h1>
-          <div class="destination-details">
-            <img :src="require(`@/assets/${destination.image}.jpg`)" />
-            <p>{{ destination.description }}</p>
-          </div>
-        </section>
-        <section v-if="destination.experiences" id="experience">
-          <h2>Top experiences in {{ destination.name }}</h2>
-          <div class="experiences">
-            <div
-              v-for="experience in destination.experiences"
-              :key="experience.id"
-              class="experience-card"
-              ><router-link
-                :to="{
-                  name: 'Experience',
-                  params: { exp: experience.slug },
-                  hash: '#experience',
-                }"
-              >
-                <img
-                  :src="require(`@/assets/${experience.image}.jpg`)"
-                  :alt="experience.title"
-                />
-
-                <span class="experience-card__text">
-                  {{ experience.title }}</span
-                >
-              </router-link>
-            </div>
-          </div>
-        </section>
+    <section class="destination">
+      <h1>{{ destination.name }}</h1>
+      <div class="destination-details">
+        <img :src="require(`@/assets/${destination.image}.jpg`)" />
+        <p>{{ destination.description }}</p>
       </div>
-    </div>
+    </section>
+    <section v-if="destination.experiences" id="experience">
+      <h2>Top experiences in {{ destination.name }}</h2>
+      <div class="experiences">
+        <div
+          v-for="experience in destination.experiences"
+          :key="experience.id"
+          class="experience-card"
+          ><router-link
+            :to="{
+              name: 'Experience',
+              params: { exp: experience.slug },
+              hash: '#experience',
+            }"
+          >
+            <img
+              :src="require(`@/assets/${experience.image}.jpg`)"
+              :alt="experience.title"
+            />
+            <span class="experience-card__text"> {{ experience.title }}</span>
+          </router-link>
+        </div>
+      </div>
+    </section>
     <router-view :key="$route.path" />
   </div>
 </template>
@@ -47,12 +40,24 @@ import store from '@/store.js'
 
 export default {
   components: { GoBack },
-  props: ['dest'],
+  props: {
+    dest: {
+      type: String,
+      required: true,
+    },
+  },
 
   data: function() {
     return {
       destinations: store.destinations,
     }
+  },
+  computed: {
+    destination() {
+      return store.destinations.find(
+        (destination) => destination.slug === this.dest
+      )
+    },
   },
 }
 </script>

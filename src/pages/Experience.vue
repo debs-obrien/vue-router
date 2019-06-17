@@ -24,7 +24,16 @@
 import store from '@/store.js'
 
 export default {
-  props: ['dest', 'exp'],
+  props: {
+    dest: {
+      type: String,
+      required: true,
+    },
+    exp: {
+      type: String,
+      required: true,
+    },
+  },
 
   data: function() {
     return {
