@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import NotFound from '@/pages/NotFound'
+import store from '@/store.js'
 const Destination = () =>
   import(/* webpackChunkName: "Destination" */ '@/pages/Destination.vue')
 const Experience = () =>
@@ -57,15 +58,24 @@ export default new Router({
           props: true,
         },
       ],
+      beforeEnter: (to, from, next) => {
+        const slug = to.params.dest
+        if (
+          store.destinations.find((destination) => destination.slug === slug)
+        ) {
+          next()
+        } else {
+          next({ name: 'Not Found' })
+        }
+      },
     },
     {
-      path: '404',
-      Name: 'Not Found',
+      path: '/404',
+      name: 'Not Found',
       component: NotFound,
     },
     {
       path: '*',
-      Name: 'Not Found',
       component: NotFound,
     },
   ],
