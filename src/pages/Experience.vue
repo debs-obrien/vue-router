@@ -1,21 +1,19 @@
 <template>
   <div>
-    <div v-for="destination in destinations" :key="destination.id">
-      <div v-if="dest == destination.slug">
-        <div v-for="experience in destination.experiences" :key="experience.id">
-          <section v-if="exp == experience.slug">
-            <h3 class="title">{{ experience.title }}</h3>
-            <div>
-              <div class="experience-details">
-                <img
-                  :src="require(`@/assets/${experience.image}.jpg`)"
-                  :alt="experience.title"
-                />
-                <p> {{ experience.description }}</p>
-              </div>
+    <div v-if="dest === destination.slug">
+      <div v-for="experience in destination.experiences" :key="experience.id">
+        <section v-if="exp === experience.slug">
+          <h3 class="title">{{ experience.title }}</h3>
+          <div>
+            <div class="experience-details">
+              <img
+                :src="require(`@/assets/${experience.image}.jpg`)"
+                :alt="experience.title"
+              />
+              <p> {{ experience.description }}</p>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -39,6 +37,13 @@ export default {
     return {
       destinations: store.destinations,
     }
+  },
+  computed: {
+    destination() {
+      return store.destinations.find(
+        (destination) => destination.slug === this.dest
+      )
+    },
   },
 }
 </script>
