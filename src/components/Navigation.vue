@@ -18,35 +18,11 @@
   </nav>
 </template>
 <script>
+import store from '@/store.js'
 export default {
   data: function() {
     return {
-      destinations: [
-        {
-          name: 'Brazil',
-          image: 'brazil',
-          slug: 'brazil',
-          id: 1,
-        },
-        {
-          name: 'Panama',
-          image: 'panama',
-          slug: 'panama',
-          id: 2,
-        },
-        {
-          name: 'Hawaii',
-          image: 'hawaii',
-          slug: 'hawaii',
-          id: 3,
-        },
-        {
-          name: 'Jamaica',
-          image: 'jamaica',
-          slug: 'jamaica',
-          id: 4,
-        },
-      ],
+      destinations: store.destinations,
     }
   },
 }
