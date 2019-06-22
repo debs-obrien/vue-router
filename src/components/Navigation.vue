@@ -79,4 +79,7 @@ export default {
   text-decoration: underline;
   color: teal;
 }
+.router-link-exact-active {
+  color: #a10bc7;
+}
 </style>

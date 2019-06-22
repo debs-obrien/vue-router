@@ -66,7 +66,4 @@ li {
 .fade-leave-to {
   opacity: 0;
 }
-.router-link-exact-active {
-  color: #a10bc7;
-}
 </style>
