@@ -21,7 +21,6 @@
               params: { exp: experience.slug },
               hash: '#experience',
             }"
-            <p>hellow from me</p>
           >
             <img
               :src="require(`@/assets/${experience.image}.jpg`)"
