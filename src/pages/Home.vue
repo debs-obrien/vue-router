@@ -70,7 +70,4 @@ a:hover,
 a:visited {
   text-decoration: underline;
 }
-.router-link-active {
-  color: #08312f;
-}
 </style>
